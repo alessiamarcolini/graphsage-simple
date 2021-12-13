@@ -211,7 +211,7 @@ def run_pubmed():
         optimizer.step()
         end_time = time.time()
         times.append(end_time - start_time)
-        print(batch, loss.data[0])
+        print(batch, loss.data.item())
 
     val_output = graphsage.forward(val)
     print(
@@ -220,6 +220,14 @@ def run_pubmed():
     )
     print("Average batch time:", np.mean(times))
 
+    test_output = graphsage.forward(test)
+    print(
+        "Test F1:",
+        f1_score(
+            labels[test], test_output.data.numpy().argmax(axis=1), average="micro"
+        ),
+    )
+
 
 if __name__ == "__main__":
-    run_cora()
+    run_pubmed()
