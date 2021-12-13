@@ -10,7 +10,7 @@ Currently, only supervised versions of GraphSAGE-mean and GraphSAGE-GCN are impl
 
 #### Requirements
 
-pytorch >0.2 is required.
+pytorch >0.2, numpy and sklearn are required.
 
 #### Running examples
 
